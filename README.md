@@ -5,7 +5,7 @@
   </h1>
 
   <h3>
-    Transforming Calculations into Seamless Innovation
+    An Advance Calculator With Functions Of Casio FX-82ES Plus
   </h3>
 
 </div>
