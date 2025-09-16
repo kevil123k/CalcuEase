@@ -184,7 +184,7 @@ const Calculator = () => {
         } else if (func.endsWith('³') || func.endsWith('²') || func.endsWith('⁻¹')) {
             const power = func.endsWith('³') ? '^3' : (func.endsWith('²') ? '^2' : '^-1');
             setExpression(prev => prev + power);
-            setDisplay(prev => prev + (btn.label as string));
+            setDisplay(prev => prev + btn.value);
         } else {
             const funcName = func.replace('h','');
             const displayFunc = isShiftActive ? func.replace('a', 'a') : funcName;
