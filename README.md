@@ -12,14 +12,14 @@
 
 <div align="center">
 
-  <a href="https://github.com/your-username/your-repo/commits/main">
-    <img src="https://img.shields.io/github/last-commit/your-username/your-repo?style=for-the-badge&logo=github&color=black" alt="Last Commit">
+  <a href="https://github.com/kevil123k/CalcuEase/commits/main">
+    <img src="https://img.shields.io/github/last-commit/kevil123k/CalcuEase?style=for-the-badge&logo=github&color=black" alt="Last Commit">
   </a>
   <a href="#">
-    <img src="https://img.shields.io/github/languages/top/your-username/your-repo?style=for-the-badge&color=007acc" alt="Top Language">
+    <img src="https://img.shields.io/github/languages/top/kevil123k/CalcuEase?style=for-the-badge&color=007acc" alt="Top Language">
   </a>
   <a href="#">
-    <img src="https://img.shields.io/github/languages/count/your-username/your-repo?style=for-the-badge&color=informational" alt="Language Count">
+    <img src="https://img.shields.io/github/languages/count/kevil123k/CalcuEase?style=for-the-badge&color=informational" alt="Language Count">
   </a>
 
 </div>
