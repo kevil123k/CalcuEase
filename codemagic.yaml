@@ -1,0 +1,22 @@
+# This is the corrected workflow definition
+workflows:
+  android-build:
+    name: Android Build
+    environment:
+      node: '20'
+      java: '17'
+    scripts:
+      - name: Install dependencies
+        script: npm install
+      - name: Build web app
+        script: npm run build
+      - name: Install Capacitor tools
+        script: npm install @capacitor/cli@latest @capacitor/android@latest
+      - name: Create native Android project
+        script: npx cap add android
+      - name: Build the APK
+        script: |
+          cd android
+          ./gradlew assembleDebug
+    artifacts:
+      - android/app/build/outputs/apk/debug/*.apk
