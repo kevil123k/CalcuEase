@@ -1,6 +1,23 @@
+# =============================================================================
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# =============================================================================
 
-# dependencies
+# Local Environment Variables
+# IMPORTANT: Never commit secret keys.
+.env*.local
+.env
+
+# IDE - WebStorm
+# -----------------------------------------------------------------------------
+.idea/
+/shelf/
+/workspace.xml
+/httpRequests/
+/dataSources/
+/dataSources.local.xml
+
+# Dependencies
+# -----------------------------------------------------------------------------
 /node_modules
 /.pnp
 .pnp.*
@@ -9,37 +26,37 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+.pnpm-debug.log*
 
-# testing
+# Build output & Cache
+# -----------------------------------------------------------------------------
+/.next/
+/out/ # <-- ADDED: For the Next.js static export folder
+/android/ # <-- ADDED: For the locally generated native project
+/build
+*.tsbuildinfo
+.vercel
+
+# Auto-generated TypeScript file by Next.js
+next-env.d.ts
+
+# Testing
+# -----------------------------------------------------------------------------
 /coverage
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs & Debugging Files
+# -----------------------------------------------------------------------------
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-#next-env.d.ts
-
-.genkit/*
-#.env*
-
-# firebase
 firebase-debug.log
 firestore-debug.log
+
+# Tool-specific (Firebase Genkit)
+# -----------------------------------------------------------------------------
+.genkit/*
+
+# Miscellaneous
+# -----------------------------------------------------------------------------
+.DS_Store
+*.pem
