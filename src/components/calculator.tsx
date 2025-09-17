@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Switch } from '@/components/ui/switch';
 import { History, Delete, Sigma, Divide, X, Minus, Plus, Percent, Moon, Sun, Settings } from 'lucide-react';
-import { performUnitConversion } from '@/app/actions';
+//import { performUnitConversion } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
@@ -288,8 +288,36 @@ const Calculator = () => {
             }
         } else if (/[a-zA-Z]{2,}/.test(finalExpression) && !['sin', 'cos', 'tan', 'log', 'ln', 'sqrt', 'abs', 'sinh', 'cosh', 'tanh', 'asinh', 'acosh', 'atanh', 'e', 'π', 'Ans', 'C', 'P'].some(fn => finalExpression.includes(fn))) {
           setIsAiLoading(true);
-          const { data, error } = await performUnitConversion(finalExpression);
-          setIsAiLoading(false);
+            let data = null;
+            let error = null;
+
+            try {
+                // Send a request to the API route we created
+                const response = await fetch('/api/convert', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ expression: finalExpression }),
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    // Handle errors from the API
+                    throw new Error(result.error || 'An unknown error occurred.');
+                }
+
+                // If successful, assign the data
+                data = result.data;
+
+            } catch (e: any) {
+                // Handle network errors
+                console.error("Conversion API call failed:", e);
+                error = e.message;
+            }
+
+            setIsAiLoading(false);
           if (error || !data) {
             toast({ variant: 'destructive', title: 'AI Error', description: error || 'Could not perform conversion.' });
             setDisplay('Error');
